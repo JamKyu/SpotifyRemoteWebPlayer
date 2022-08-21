@@ -4,6 +4,26 @@
 
 @layer components {
   .button {
-    @apply h-5 w-5;
+    @apply h-5 w-5 cursor-pointer hover:text-white transition transform duration-100 ease-out;
   }
+  .sidebar__btn {
+    @apply flex items-center space-x-2 hover:text-white transition-all ease-out duration-300 font-bold cursor-not-allowed;
+  }
+}
+
+.slider .track {
+  height: 4px;
+  background: #52525b;
+  border-radius: 6px;
+}
+
+.track.track-0 {
+  background: white;
+  border-radius: 6px;
+  z-index: 10;
+}
+
+.volume:hover .track.track-0 {
+  background: #1db954;
+  z-index: 0;
 }

@@ -3,13 +3,13 @@ import {
   SearchIcon,
   LibraryIcon,
   PlusCircleIcon,
-  HeartIcon,
   UserGroupIcon,
 } from "@heroicons/react/outline";
+import { HeartIcon } from "@heroicons/react/solid";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import { playlistIdState, playlistState } from "../atoms/playlistAtom";
+import { playlistIdState } from "../atoms/playlistAtom";
 import useSpotify from "../hooks/useSpotify";
 
 function Sidebar() {
@@ -18,7 +18,7 @@ function Sidebar() {
   const [playlists, setPlaylists] = useState([]);
   const [playlistId, setPlaylistId] = useRecoilState(playlistIdState);
 
-  console.log("Playlist ID:", playlistId);
+  // console.log("Playlist ID:", playlistId);
 
   useEffect(() => {
     if (spotifyApi.getAccessToken()) {
@@ -31,24 +31,24 @@ function Sidebar() {
   return (
     <div className="text-gray-400 p-5 text-xs lg:text-sm sm:max-w-[12rem] lg:max-w-[15rem] border-r border-zinc-800 overflow-y-scroll scrollbar-hide h-screen bg-black hidden md:inline-flex">
       <div className="space-y-4">
-        <button className="flex items-center space-x-2 hover:text-white transition-all ease duration-300 font-bold cursor-not-allowed">
+        <button className="sidebar__btn">
           <HomeIcon className="h-5 w-5" />
           <p>Home</p>
         </button>
-        <button className="flex items-center space-x-2 hover:text-white transition-all ease duration-300 font-bold cursor-not-allowed">
+        <button className="sidebar__btn">
           <SearchIcon className="h-5 w-5" />
           <p>Search</p>
         </button>
-        <button className="flex items-center space-x-2 hover:text-white transition-all ease duration-300 font-bold cursor-not-allowed">
+        <button className="sidebar__btn">
           <LibraryIcon className="h-5 w-5" />
           <p>Library</p>
         </button>
         <hr className="border-t-[0.1px] border-zinc-800" />
-        <button className="flex items-center space-x-2 hover:text-white transition-all ease duration-300 font-bold cursor-not-allowed">
+        <button className="sidebar__btn">
           <PlusCircleIcon className="h-5 w-5" />
           <p>Create Playlist</p>
         </button>
-        <button className="flex items-center space-x-2 hover:text-white transition-all ease duration-300 font-bold cursor-not-allowed">
+        <button className="sidebar__btn">
           <HeartIcon className="h-5 w-5" />
           <p>Liked Songs</p>
         </button>
