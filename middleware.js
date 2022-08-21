@@ -5,6 +5,9 @@ export async function middleware(req) {
   const url = req.nextUrl.clone();
   const { pathname } = req.nextUrl;
   const token = await getToken({
+    secureCookie:
+      process.env.NEXTAUTH_URL?.startsWith("https://") ??
+      !!process.env.VERCEL_URL,
     req,
     secret: process.env.JWT_SECRET,
   });
