@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { shuffle } from "lodash";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { playlistIdState, playlistState } from "../atoms/playlistAtom";
-import spotifyApi from "../lib/spotify";
 import Songs from "./Songs";
+import useSpotify from "../hooks/useSpotify";
 
 const colors = [
   "from-indigo-500",
@@ -24,6 +24,7 @@ export default function Center() {
   const [color, setColor] = useState(null);
   const playlistId = useRecoilValue(playlistIdState);
   const [playlist, setPlaylist] = useRecoilState(playlistState);
+  const spotifyApi = useSpotify();
 
   useEffect(() => {
     setColor(shuffle(colors).pop());
