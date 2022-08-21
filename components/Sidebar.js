@@ -41,7 +41,7 @@ function Sidebar() {
         </button>
         <button className="sidebar__btn">
           <LibraryIcon className="h-5 w-5" />
-          <p>Library</p>
+          <p>Your Library</p>
         </button>
         <hr className="border-t-[0.1px] border-zinc-800" />
         <button className="sidebar__btn">

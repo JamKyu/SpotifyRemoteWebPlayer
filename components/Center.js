@@ -38,7 +38,7 @@ export default function Center() {
       .catch((err) => console.log("Error", err));
   }, [spotifyApi, playlistId]);
 
-  console.log(playlist);
+  // console.log(playlist);
 
   return (
     <div className="flex-grow h-screen overflow-y-scroll scrollbar-hide">
@@ -71,9 +71,7 @@ export default function Center() {
               ? `public ${playlist?.type}`
               : `private ${playlist?.type}`}
           </p>
-          <h2 className="text-2xl md:text-3xl xl:text-5xl font-bold mt-2 mb-10">
-            {playlist?.name}
-          </h2>
+          <h2 className="text-6xl font-bold mt-2 mb-8">{playlist?.name}</h2>
           <div className="flex items-center">
             <p className="font-semibold">{playlist?.owner.display_name} ·</p>
             {playlist?.followers.total ? (

@@ -11,6 +11,10 @@
   }
 }
 
+.explicit {
+  filter: invert(60%);
+}
+
 .slider .track {
   height: 4px;
   background: #52525b;

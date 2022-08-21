@@ -85,7 +85,7 @@ export default function Player() {
   );
 
   return (
-    <div className="h-24 bg-[#191414] border-t-[1px] border-zinc-800 text-white text-opacity-60 grid grid-cols-3 text-xs md:text-base px-2 md:px-8">
+    <div className="h-24 bg-[#191414] border-t-[1px] border-zinc-800 text-white text-opacity-60 grid grid-cols-3 text-xs md:text-base px-2 md:px-4">
       <div className="flex items-center space-x-4">
         <img
           className="hidden md:inline h-16 w-16"
@@ -128,7 +128,7 @@ export default function Player() {
         />
         <RefreshIcon className="button cursor-not-allowed" />
       </div>
-      <div className="flex items-center space-x-3 md:space-x-4 justify-end md:pr-5">
+      <div className="flex items-center space-x-3 md:space-x-4 justify-end pr-2 md:pr-5">
         <div className="volume flex items-center space-x-3 md:space-x-4 group">
           {volume === 0 ? (
             <VolumeOffIcon className="button" onClick={() => setVolume(50)} />
@@ -136,7 +136,7 @@ export default function Player() {
             <VolumeUpIcon className="button" onClick={() => setVolume(0)} />
           )}
           <ReactSlider
-            className="slider h-1 w-24 md:w-48 rounded-md"
+            className="slider h-1 w-16 md:w-48 rounded-md"
             thumbClassName="w-3 h-3 md:w-4 md:h-4 invisible group-hover:visible bg-white rounded-full focus:outline-none -top-[4px] md:-top-[6px]"
             trackClassName="track"
             min={0}
