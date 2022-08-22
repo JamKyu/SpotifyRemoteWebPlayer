@@ -93,7 +93,7 @@ export default function Player() {
   }, [currentTrackIdState, spotifyApi, session]);
 
   useEffect(() => {
-    if (volume > 0 && volume < 100) {
+    if (volume >= 0 && volume <= 100) {
       debouncedAdjustVolume(volume);
     }
   }, [volume]);
@@ -156,10 +156,10 @@ export default function Player() {
       </div>
       <div className="flex items-center space-x-3 md:space-x-4 justify-end pr-2 md:pr-5">
         <div className="volume flex items-center space-x-3 md:space-x-4 group">
-          {volume === 0 ? (
-            <VolumeOffIcon className="button" onClick={() => setVolume(50)} />
-          ) : (
+          {volume > 0 ? (
             <VolumeUpIcon className="button" onClick={() => setVolume(0)} />
+          ) : (
+            <VolumeOffIcon className="button" onClick={() => setVolume(50)} />
           )}
           <ReactSlider
             className="slider h-1 w-16 md:w-48 rounded-md"
@@ -168,7 +168,7 @@ export default function Player() {
             min={0}
             max={100}
             value={volume}
-            onChange={(value) => setVolume(Number(value))}
+            onChange={(value) => setVolume(value)}
           />
         </div>
       </div>
